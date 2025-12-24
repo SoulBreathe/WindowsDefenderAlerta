@@ -1,0 +1,10 @@
+# Pastas de compilação e temporárias
+.vs/
+bin/
+obj/
+
+# Arquivos de usuário e cache
+*.user
+*.suo
+*.vsp
+*.temp
