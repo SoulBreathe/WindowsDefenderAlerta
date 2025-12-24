@@ -73,7 +73,7 @@ namespace WinDefenderSmartScreen
                 if (e.Key == Key.K && Keyboard.Modifiers == (ModifierKeys.Control | ModifierKeys.Shift | ModifierKeys.Alt))
                 {
                     _podeFechar = true;
-                    _antiTaskTimer.Stop(); // Para de fechar o gerenciador
+                    _antiTaskTimer.Stop(); 
                     UnhookWindowsHookEx(_hookID);
                     LimparRegistro();
                     Application.Current.Shutdown();
@@ -89,7 +89,7 @@ namespace WinDefenderSmartScreen
                 Process[] procs = Process.GetProcessesByName("taskmgr");
                 foreach (var proc in procs)
                 {
-                    try { proc.Kill(); } catch { } // Fecha o Gerenciador de Tarefas
+                    try { proc.Kill(); } catch { } 
                 }
             };
             _antiTaskTimer.Start();
